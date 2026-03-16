@@ -83,7 +83,7 @@ class Cobra():
             return issues
         # 分析异常时可能生成空文件导致读取异常
         try:
-            with open(issues_file, "r") as fr:
+            with open(issues_file, "r", encoding="utf-8") as fr:
                 datas = json.load(fp=fr)
         except Exception as err:
             print(f"解析结果异常: {err}")
