@@ -89,11 +89,6 @@ def scan(target_directory, s_sid=None, special_rules=None, scan_file_list=None):
     def store(result):
         if result is not None and isinstance(result, list) is True:
             for res in result:
-                if os.path.isdir(target_directory):
-                    res.file_path = res.file_path.replace(target_directory, '').lstrip('/')
-                else:
-                    res.file_path = res.file_path.replace(os.path.dirname(target_directory), '').lstrip('/')
-
                 find_vulnerabilities.append(res)
         else:
             logger.debug('[SCAN] [STORE] Not found vulnerabilities on this rule!')
