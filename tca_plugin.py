@@ -93,7 +93,7 @@ class Cobra():
         for (_, value) in datas.items():
             vulns = value["vulnerabilities"]
             for vuln in vulns:
-                path = os.path.join(SOURCE_DIR, vuln["file_path"])
+                path = vuln["file_path"]
                 line = int(vuln["line_number"])
                 # rule = vuln['rule_name']
                 rule = "CVI-" + vuln["id"]
