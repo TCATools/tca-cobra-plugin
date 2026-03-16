@@ -14,7 +14,6 @@
 import os
 import re
 import json
-import fcntl
 import traceback
 import multiprocessing
 from . import const
@@ -37,9 +36,7 @@ class Running:
         file_path = os.path.join(running_path, '{sid}_data'.format(sid=self.sid))
         data = json.dumps(data, sort_keys=True)
         with open(file_path, 'w+') as f:
-            fcntl.flock(f, fcntl.LOCK_EX)
             f.writelines(data)
-
 
 
 def score2level(score):
